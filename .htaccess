@@ -1,0 +1,23 @@
+Options All -Indexes
+IndexIgnore *
+
+ServerSignature Off
+Options +FollowSymLinks
+SetEnv TZ Europe/Paris
+
+AddDefaultCharset UTF-8
+
+# Protéger les fichiers .htaccess et .htpasswds
+<Files ~ "^.*\.([Hh][Tt][AaPp])">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+
+
+#RewriteCond %{SERVER_PORT} ^80$ [OR]
+#RewriteCond %{HTTPS} =off
+#RewriteRule ^(.*)$ https://domaine.fr.fr/$1 [R=301,L]
+
+#RewriteCond %{HTTP_HOST} ^www\.domaine\.fr [NC]
+#RewriteRule ^(.*)$ https://domaine.fr/$1 [R=301,L]
